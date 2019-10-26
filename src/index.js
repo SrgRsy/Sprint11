@@ -1,4 +1,6 @@
 import "./style.css";
+
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort3' : 'https://praktikum.tk/cohort3'
 class Card {
     constructor(name, link) {
       this.placeCard = this.create(name, link);
