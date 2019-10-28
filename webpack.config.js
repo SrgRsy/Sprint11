@@ -1,11 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добавили плагин
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); 
 module.exports = {
-  entry: { main: './src/index.js' },
+  entry: { main: './src/scripts/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js'
@@ -28,17 +29,15 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
-        use:  [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // добавили минификацию CSS
-      },
-
-      {
         test: /\.(png|jpg|gif|ico|svg)$/,
         use: [
-             'file-loader?name=../dist/images/[name].[ext]', // указали папку, куда складывать изображения
+             'file-loader?name=../images/[name].[ext]', // указали папку, куда складывать изображения
              {
                  loader: 'image-webpack-loader',
-                 options: { }
+                 options: {
+                  bypassOnDebug: true, 
+                  disable: true,
+                }
              },
         ],
         },
@@ -51,8 +50,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ // 
-      filename: 'style.[contenthash].css',
+    new MiniCssExtractPlugin({
+      filename: 'index.[contenthash].css',
     }),
     new webpack.DefinePlugin({
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
