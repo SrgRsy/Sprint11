@@ -2,13 +2,13 @@ const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort3' : '
 export {auth};
 import {placesCardList} from './index.js';
 import CardList from './cardList.js';
+
 export default class Api {
     constructor() {
         
     }
   
     getUser() {
-      
       
       const name = document.querySelector('.user-info__name');
       const about = document.querySelector('.user-info__job');
