@@ -1,6 +1,5 @@
-import {cardButton} from './index.js';
-import {placesCardList} from './index.js';
-import {editUserInfoButton} from './index.js';
+import {cardButton,imageContainer,editUserInfoButton,placesCardList,popupImage,userNameInfo,userJobInfo,api,group} from './index.js';
+import {auth} from './api.js';
 export default class Card {
     constructor(name, link) {
       this.placeCard = this.create(name, link);
