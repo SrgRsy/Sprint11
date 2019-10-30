@@ -1,6 +1,4 @@
-export {cardButton};
-export {placesCardList};
-export {editUserInfoButton};
+export {cardButton,imageContainer,editUserInfoButton,placesCardList,popupImage,valid,userNameInfo,userJobInfo,api,group};
 import '../pages/index.css';
 import Card from './card.js';
 import Popup from './popUp.js';
@@ -8,8 +6,6 @@ import Validation from './valid.js';
 import {auth} from './api.js';
 import Api from './api.js';
 
-
-  const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort3' : 'https://praktikum.tk/cohort3';  
   const userNameInfo = document.querySelector('.user-info__name');
   const userJobInfo = document.querySelector('.user-info__job');
   const api = new Api();

@@ -1,8 +1,8 @@
 const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort3' : 'https://praktikum.tk/cohort3';  
 export {auth};
-import {placesCardList} from './index.js';
+import {placesCardList,group} from './index.js';
 import CardList from './cardList.js';
-
+const auth = 'b6c23b96-d9c2-4098-b25a-8bda36901348';
 export default class Api {
     constructor() {
         
@@ -84,5 +84,5 @@ export default class Api {
     }
   
   }
-  const auth = 'b6c23b96-d9c2-4098-b25a-8bda36901348';
+
   

@@ -1,4 +1,4 @@
-
+import {valid} from './index.js'
 export default class Validation {
     constructor() {
     }
