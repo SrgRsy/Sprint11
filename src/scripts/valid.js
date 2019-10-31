@@ -1,8 +1,7 @@
-import {valid} from './index.js'
-export default class Validation {
+
+ export default class Validation {
     constructor() {
     }
-  
     checkMinLength(firstInput, secondInput, button) {
       if (firstInput.value.length <= 1 || secondInput.value.length <= 1) {
         button.setAttribute('disabled', true);
@@ -29,3 +28,17 @@ export default class Validation {
       }
     }
   }
+
+const placesCardList = document.querySelector('.places-list');
+const userNameInfo = document.querySelector('.user-info__name');
+const userJobInfo = document.querySelector('.user-info__job');
+
+const valid = {
+  validationLenght: 'Должно быть от 2 до 30 символов',
+  notEmpty: 'Поле не должно быть пустым'
+}
+
+  
+  
+
+  

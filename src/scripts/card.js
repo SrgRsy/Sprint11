@@ -1,5 +1,4 @@
-import {cardButton,imageContainer,editUserInfoButton,placesCardList,popupImage,userNameInfo,userJobInfo,api,group} from './index.js';
-import {auth} from './api.js';
+import {cardButton,imageContainer,editUserInfoButton,placesCardList,popupImage,userNameInfo,userJobInfo,api,} from './const.js';
 export default class Card {
     constructor(name, link) {
       this.placeCard = this.create(name, link);
@@ -72,7 +71,7 @@ export default class Card {
       const editUserInfo = form.elements.info;
       userNameInfo.textContent = editName.value;
       userJobInfo.textContent = editUserInfo.value;
-      api.correctProfile(userNameInfo.textContent, userJobInfo.textContent, group, auth);
+      api.correctProfile(userNameInfo.textContent, userJobInfo.textContent);
       form.reset();
     }
   
