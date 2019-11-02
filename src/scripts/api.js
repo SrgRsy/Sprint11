@@ -1,14 +1,14 @@
-const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort3' : 'https://praktikum.tk/cohort3';  
-export {auth};
-import {placesCardList,group} from './index.js';
+import {placesCardList} from './const.js';
 import CardList from './cardList.js';
 const auth = 'b6c23b96-d9c2-4098-b25a-8bda36901348';
+const serverUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort3' : 'https://praktikum.tk/cohort3'; 
+
 export default class Api {
     constructor() {
-        
+     
     }
   
-    getUser() {
+    getUser(auth,serverUrl) {
       
       const name = document.querySelector('.user-info__name');
       const about = document.querySelector('.user-info__job');
@@ -16,7 +16,7 @@ export default class Api {
   
       fetch(`${serverUrl}/users/me`, {
         headers: {
-          authorization: `${auth}`
+          authorization: auth
         }
       })
   
@@ -37,10 +37,10 @@ export default class Api {
     };
   
   
-    getArray(group, auth) {
+    getArray(auth,serverUrl) {
       fetch(`${serverUrl}/cards`, {
         headers: {
-          authorization: `${auth}`
+          authorization: auth
         }
       })
         .then((res) => {
@@ -59,11 +59,11 @@ export default class Api {
     };
   
   
-    correctProfile(nameProfile, aboutProfile, group, auth) {
+    correctProfile(nameProfile, aboutProfile) {
       fetch(`${serverUrl}/users/me`, {
         method: 'PATCH',
         headers: {
-          authorization: `${auth}`,
+          authorization: auth,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -84,5 +84,6 @@ export default class Api {
     }
   
   }
-
-  
+  const api = new Api();
+  api.getUser(auth,serverUrl);
+  api.getArray(auth,serverUrl);
